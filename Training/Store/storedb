@@ -1,0 +1,1 @@
+create table app.store (userid varchar(100),product varchar(100),quantity varchar(100), billamount varchar(100))
