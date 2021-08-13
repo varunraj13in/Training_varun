@@ -9,21 +9,23 @@ public class Shuffle {
 		a[j] = temp;
 	}
 	
-	static void ShuffleArray(int a[],int n){
-		Random x = new Random();
-		
-		for(int i = n-1;i>0;i--){
-			int j = x.nextInt(i+1);
+	static void reverse(int a[],int low,int high){
+		for(int i = low,j = high;i<j;i++,j--){
 			swap(a,i,j);
 		}
-		System.out.println(Arrays.toString(a));
+	}
+	static void rightRotate(int a[], int k, int n){
+		reverse(a,n-k,n-1);
+		reverse(a,0,n-k-1);
+		reverse(a,0,n-1);
 	}
 	
 	public static void main(String[] args) {
 
 		int a[] = { 1, 2, 3, 4, 5 };
-		int n = a.length;
-		ShuffleArray(a,n);
+		int n = 3;
+		rightRotate(a, n, a.length);
+		System.out.println(Arrays.toString(a));
 	}
 
 }
