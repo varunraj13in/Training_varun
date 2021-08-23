@@ -16,7 +16,7 @@ public class Invoice_Service {
 			connection.close();
 			
 		} catch (ClassNotFoundException | SQLException ce) {
-			ce.printStackTrace();
+			System.out.println("Try restarting the application.");
 		}
 	}
 	public static void Invoice_Display()   
@@ -48,7 +48,7 @@ public class Invoice_Service {
 			connection.close();
 			
 		} catch (ClassNotFoundException | SQLException ce) {
-			
+			System.out.println("Try restarting the application.");
 			}  
 		}     
 }

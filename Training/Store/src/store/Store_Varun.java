@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import billing.Bill_Varun;
 import invoice.service.Invoice_Service;
+import payment.Payment;
 import product.service.Product_Service;
 import user.User_Varun;
 
@@ -149,26 +150,24 @@ public class Store_Varun {
 		Store_Varun.productDisplay(pt, gender);
 		while (true) {
 			product_choice = Store_Varun.productChoice();
-			if (product_choice.equals("1") || product_choice.equals("2")|| product_choice.equals("3")) {
+			if (product_choice.equals("1") || product_choice.equals("2") || product_choice.equals("3")) {
 				break;
-			}
-			else{
+			} else {
 				continue;
 			}
 		}
-		
+
 		Store_Varun.priceDisplay(p, amt, q);
-		
+
 		String productChosen = "";
 		String qty = "";
-		
+
 		while (true) {
 			productChosen = Store_Varun.itemChoice();
 			if (productChosen.equals("product is not valid enter again!")) {
 				System.err.println("product is not valid enter again!");
 				continue;
-			}
-			else{
+			} else {
 				break;
 			}
 		}
@@ -177,29 +176,29 @@ public class Store_Varun {
 			if (qty.equals("quantity is not valid")) {
 				System.err.println("quantity is not valid enter again!");
 				continue;
-			}
-			else{
+			} else {
 				break;
 			}
 		}
 
-		
 		Bill_Varun b = new Bill_Varun();
 		String billamount = "";
-		
+
 		while (true) {
 			billamount = b.invoiceOutput(productChosen, qty, amt, p);
 			if (billamount.equals("Invalid Input")) {
 				System.err.println("invalid input enter again!");
 				continue;
-			}
-			else{
+			} else {
 				break;
 			}
 		}
-		
+
 		Invoice_Service iv = new Invoice_Service();
 		iv.update(userid, productChosen, qty, billamount);
+		
+		
+		System.out.println("\nStore Exited");
 		System.exit(0);
 
 	}

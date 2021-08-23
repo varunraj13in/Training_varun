@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import payment.Payment;
 import store.Store_Varun;
 
 public class Bill_Varun extends Store_Varun {
@@ -44,6 +45,34 @@ public class Bill_Varun extends Store_Varun {
         System.out.println(
                 "Total: " + c + "(" + (int) (price * b) + "Rs " + "+ " + (int) (Math.round(val * 100.0) / 100.0)
                         + "%GST i.e. " + (int) (Math.round(val2 * 100.0) / 100.0) + "Rs)");
+        
+        Payment pay = new Payment();
+		boolean payment_choice = true;
+		while (payment_choice) {
+			System.out.println("\nPayment Modes:\n1. Credit Card \n2. Debit Card\n3. Cancel Transaction");
+			System.out.println("\nPlease choose an option: ");
+			Scanner sc = new Scanner(System.in);
+			String choice = sc.next();
+
+			switch (choice) {
+			case "1":
+				pay.creditPayment(userid, c);
+				payment_choice=false;
+				continue;
+			case "2":
+				pay.debitPayment(userid, c);
+				payment_choice=false;
+				continue;
+			case "3":
+				System.out.println("Transaction Cancelled!");
+				System.exit(0);
+				break;
+			default:
+				System.err.println("Invalid Input");
+				continue;
+			}
+		}
+        
         System.out.println("\nDo you want to print invoice: (y/n) :");
 
         Scanner sc = new Scanner(System.in);

@@ -1,10 +1,17 @@
 package user;
 
-import java.io.Console;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.apache.derby.tools.sysinfo;
 
 import store.Store_Varun;
 
@@ -68,8 +75,11 @@ public class User_Varun extends Store_Varun {
 		return "";
 	}
 
+	public static int getRandom(int max) {
+		return (int) (Math.random() * max);
+	}
+
 	public static String Register() {
-		Console console = System.console();
 		System.out.println("\n------Register Window------\n");
 		System.out.println("Enter Username: ");
 		String username = sc.next();
@@ -104,7 +114,35 @@ public class User_Varun extends Store_Varun {
 		}
 
 		User_Varun.user_details.put(role, new User_Varun(role, username, password));
+
 		System.out.println("\n" + username + " successfully created!\n");
+		try {
+			Class.forName("org.apache.derby.jdbc.ClientDriver");
+			Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/payment;create=true",
+					"user", "user");
+			connection.setAutoCommit(false);
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM app.payment where userid='" + username + "'");
+			String d = "";
+			if (rs.next() == false) {
+				PreparedStatement st = connection.prepareStatement("insert into app.payment values(?,?,?)");
+				st.setString(1, username);
+				st.setInt(2, 1000);
+				st.setInt(3, getRandom(10000));
+				st.execute();
+			} else {
+				d = rs.getString(1);
+			}
+
+			if (d.equals(username)) {
+				connection.rollback();
+			} else {
+				connection.commit();
+			}
+			connection.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 		homeIntro();
 		return "";
 	}
