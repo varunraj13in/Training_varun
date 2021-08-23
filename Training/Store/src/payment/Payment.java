@@ -32,7 +32,7 @@ public class Payment {
 			else {
 				con.rollback();
 				System.out.println("Credit limit is breached");
-				System.out.println("Transaction Failed");
+				System.out.println("Transaction Declined");
 				System.exit(4);
 			}
 			con.close();
@@ -64,7 +64,8 @@ public class Payment {
 			}
 			else {
 				con.rollback();
-				System.out.println("Transaction Failed");
+				System.out.println("Insufficient Balance");
+				System.out.println("Transaction Declined");
 				System.exit(4);
 			}
 			con.close();
