@@ -22,17 +22,17 @@ body {
     text-align: left;
 }
 
-form {
-    margin-left: 3em;
-}
 
 table {
     margin-left: 0em;
+    margin: auto;
 }
 
 .form-submit {
-    display: flex;
+    
+    float: left;
     justify-content: center;
+    margin: auto auto;
 }
 
 button {
@@ -45,10 +45,12 @@ button {
 
 #add {
     background-color: deepskyblue;
+    margin-left: 11em;
 }
 
 #reset {
     background-color: red;
+    margin-left: 4em;
 }
 
 input[type="text"],
@@ -109,6 +111,7 @@ label {
     border: 1px;
     width: 50%;
     margin: auto;
+    margin-top: 3em;
     margin-bottom:2em;
 }
 .data td, th {

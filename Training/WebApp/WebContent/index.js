@@ -36,6 +36,8 @@ function checkPass() {
     document.querySelector("#errors").style.visibility = "visible";
     document.querySelector("#missing").style.visibility = "visible";
     document.querySelector("#mandatory").style.visibility = "visible";
+    
+    return false;
   } else {
     document.querySelector("#errors").style.visibility = "hidden";
     document.querySelector("#missing").style.visibility = "hidden";
@@ -60,6 +62,7 @@ function checkPass() {
       return false;
     } else {
       alert("Success!");
+      return true;
     }
   }
 }
