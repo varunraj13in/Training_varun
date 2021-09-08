@@ -1,0 +1,1 @@
+create table app.registration(userid varchar(100),password varchar(100),card varchar(100),balance varchar(100),PRIMARY KEY(userid))

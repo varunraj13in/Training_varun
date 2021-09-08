@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class MyServlet
+ * Servlet implementation class TestServlet
  */
-@WebServlet("/MyServlet")
-public class MyServlet extends HttpServlet {
+@WebServlet("/TestServlet")
+public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public MyServlet() {
+	public TestServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,13 +31,20 @@ public class MyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		response.setContentType("text/html");
 		PrintWriter pwriter = response.getWriter();
 		HttpSession session = request.getSession(false);
 		String myName = (String) session.getAttribute("uname");
-		pwriter.print("Hello "+ myName+"! This is MyServlet");
+		if (myName.equals("admin")) {
+			pwriter.print("Hello Admin! This is TestServlet");
 
+		}
+
+		else {
+			pwriter.print("You are not authorized to access this page");
+
+		}
 		pwriter.close();
 	}
 

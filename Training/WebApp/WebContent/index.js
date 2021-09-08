@@ -61,7 +61,6 @@ function checkPass() {
       alert(errors.join("\n"));
       return false;
     } else {
-      alert("Success!");
       return true;
     }
   }
@@ -78,3 +77,4 @@ function reset() {
   document.getElementById("debit").checked = true;
   updateName();
 }
+
