@@ -1,0 +1,1 @@
+create table app.payment (userid varchar(100),credit_card varchar(100), debit_card varchar(100))

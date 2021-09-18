@@ -1,0 +1,127 @@
+.container {
+	font-family: Arial, sans-serif;
+	border-style: solid;
+	margin: 3em 30em;
+}
+
+#welcome {
+	font-size: xx-large;
+	text-align: center;
+	margin: 0em;
+	font-weight: 600;
+	color: darkblue;
+}
+
+#creation {
+	font-size: large;
+	margin-left: 1em;
+	margin-bottom: 0;
+	margin-top: 0.75em;
+	text-align: left;
+}
+
+table {
+	margin-left: 0em;
+	margin: auto;
+}
+
+.form-submit {
+	float: left;
+	justify-content: center;
+	margin: auto auto;
+}
+
+button {
+	width: 30%;
+	height: 2.25em;
+	margin: 1em;
+	color: white;
+	border: none;
+}
+
+#add {
+	background-color: deepskyblue;
+	margin-left: 4em;
+}
+
+#reset {
+	background-color: red;
+	margin-left: 4em;
+}
+#loginButton {
+	background-color: green;
+	margin-left: 4em;
+}
+#displayButton {
+	background-color: purple;
+	margin-left: 4em;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 0.5em;
+	border: 1px solid;
+	margin-top: 0.5em;
+	border-radius: 5px;
+	border-width: 2px;
+}
+
+.asterisk::after {
+	content: "*";
+	color: red;
+}
+
+.asterisk-b::before {
+	content: "*";
+	color: red;
+}
+
+.form-radio {
+	max-height: 1px;
+}
+
+input[type=radio] {
+	float: left;
+	clear: none;
+	margin: 2px 0 0 2px;
+}
+
+label {
+	float: left;
+	clear: none;
+	display: block;
+	padding: 0px 1em 0px 8px;
+}
+
+.form-radio {
+	float: left;
+	clear: none;
+}
+
+#errors, #missing {
+	visibility: hidden;
+	color: red;
+}
+
+#mandatory {
+	visibility: hidden;
+}
+
+.data {
+	font-family: arial, sans-serif;
+	border: 1px;
+	width: 50%;
+	margin: auto;
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+
+.data td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+
+.data th {
+	background-color: #dddddd;
+}
