@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Product Wise Sales</h2>
+  <table id="table" class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>brand</th>
+        <th>category</th>
+        <th>quantity</th>
+        <th>price</th>
+        <th>status</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{sale.id}}</td>
+        <td>{{sale.name}}</td>
+        <td>{{sale.gender}}</td>
+        <td>{{sale.brand}}</td>
+        <td>{{sale.category}}</td>
+        <td>{{sale.quantity}}</td>
+        <td>{{sale.price}}</td>
+        <td>{{sale.status}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="goToUpdateSales(sale.id);">Edit</button>&nbsp;&nbsp;
+          <button class="btn btn-danger" (click)="deleteSales(sale.id);">Delete</button>&nbsp;&nbsp;          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" (click)="goToAddSales();">Add</button>
+</div>

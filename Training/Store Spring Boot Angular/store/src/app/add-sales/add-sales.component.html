@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Add new Sales List</h2>
+    <form (ngSubmit)="addSaleFormSubmit()">
+    <div class="form-group">
+        <label for="id">id:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.id" name="id">
+    </div>
+    <div class="form-group">
+        <label for="name">name:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="gender">gender:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.gender" name="gender">
+    </div>
+    <div class="form-group">
+        <label for="brand">brand:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.brand" name="brand">
+    </div>
+    <div class="form-group">
+        <label for="category">category:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.category" name="category">
+    </div>
+    <div class="form-group">
+        <label for="quantity">quantity:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.quantity" name="quantity">
+    </div>
+    <div class="form-group">
+        <label for="price">price:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.price" name="price">
+    </div>
+    <div class="form-group">
+        <label for="status">status:</label>
+        <input type="text" class="form-control" required [(ngModel)]="sale.status" name="status">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="goToList();">Back</button>&nbsp;&nbsp;
+    </form>
+
+</div>
